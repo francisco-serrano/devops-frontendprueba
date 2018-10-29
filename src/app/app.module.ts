@@ -10,6 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { CotizacionService } from './services/cotizacion.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CotizacionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

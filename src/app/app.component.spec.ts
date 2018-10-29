@@ -2,11 +2,18 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatButtonModule
       ],
       declarations: [
         AppComponent
@@ -14,7 +21,21 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it('says hello', () => {
+    expect('hello').toEqual('hello');
+  });
+
+  it('chequear respuesta de la api', () => {
+    const expectedCotizacion = {
+      'd': '2018-10-24',
+      'v': 36.5417,
+      'mensaje': 'Valor elevado'
+    };
+
+    httpClientSpy.get.and.returnValue(expectedCotizacion);
+  });
+
+  /* it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
@@ -31,5 +52,5 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to frontend-prueba!');
-  });
+  }); */
 });
