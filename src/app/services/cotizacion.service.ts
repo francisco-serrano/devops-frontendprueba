@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,9 @@ export class CotizacionService {
 
   private url = 'http://localhost:8080/get_cotizacion_dolar';
 
-  getCotizacion() {
+  getCotizacion(): Observable<any> {
     console.log('cotización');
 
-    this.http.get(this.url).subscribe(res => {
-      console.log('Recibió cotización');
-      console.log(res);
-
-      return res;
-    });
+    return this.http.get(this.url);
   }
 }

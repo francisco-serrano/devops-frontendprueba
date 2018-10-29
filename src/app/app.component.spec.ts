@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 describe('AppComponent', () => {
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -20,20 +21,6 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
   }));
-
-  it('says hello', () => {
-    expect('hello').toEqual('hello');
-  });
-
-  it('chequear respuesta de la api', () => {
-    const expectedCotizacion = {
-      'd': '2018-10-24',
-      'v': 36.5417,
-      'mensaje': 'Valor elevado'
-    };
-
-    httpClientSpy.get.and.returnValue(expectedCotizacion);
-  });
 
   /* it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);

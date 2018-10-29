@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CotizacionService } from './services/cotizacion.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { CotizacionService } from './services/cotizacion.service';
 export class AppComponent {
 
   constructor(
-    private http: HttpClient,
     private cotizacionService: CotizacionService
   ) {}
 
@@ -19,6 +17,8 @@ export class AppComponent {
   private jsonCotizacion;
 
   solicitarCotizacion() {
-    this.jsonCotizacion = this.cotizacionService.getCotizacion();
+    this.cotizacionService.getCotizacion().subscribe(data => {
+      this.jsonCotizacion = data;
+    });
   }
 }
