@@ -20,4 +20,4 @@ install:
   - npm install
  
 script:
-  - ng test --browsers=ChromeHeadlessCI
+  - ng test --browsers=ChromeHeadlessCI --watch=false
