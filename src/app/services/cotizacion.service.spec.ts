@@ -25,15 +25,17 @@ describe('CotizacionService', () => {
     expect(service).toBeTruthy();
   });
 
+  /*
   it('chequea formato cotización', (done) => {
     const service: CotizacionService = TestBed.get(CotizacionService);
 
     service.getCotizacion().subscribe(cotizacion => {
-      expect(cotizacion.d).toMatch('([0-9]+-[0-9]+-[0-9]+)', 'falla la fecha');
+      expect(cotizacion.d).toMatch('([0-9]+-[0-9]+-[0-9]+)');
       expect(cotizacion.v).toMatch('[0-9.]+');
 
       done();
     });
   });
+  */
 
 });
