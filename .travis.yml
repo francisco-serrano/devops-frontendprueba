@@ -4,18 +4,14 @@ sudo: false
 language: node_js
 node_js:
   - "8"
-  
-before_script:
-  - sudo apt-get update
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
  
 cache:
   directories:
      - ./node_modules
  
-install:
-  - npm install
- 
+before_script:
+  - npm install -g @angular/cli
+
 script:
-  - ng test --watch=false
+  - ng build --prod --aot
+  - ng test
