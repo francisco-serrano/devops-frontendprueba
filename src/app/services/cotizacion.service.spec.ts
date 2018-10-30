@@ -15,6 +15,8 @@ describe('CotizacionService', () => {
         CotizacionService
       ]
     });
+
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
   });
 
   it('should be created', () => {
@@ -39,7 +41,7 @@ describe('CotizacionService', () => {
 
         // No tira porque se hace comparador de igualdad, usar un matcher
         expect(cotizacion).toEqual(expectedCotizacion, 'expected cotizacion');
-
+        
         done();
       }
     );
