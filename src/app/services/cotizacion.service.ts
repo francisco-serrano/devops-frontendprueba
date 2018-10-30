@@ -12,8 +12,6 @@ export class CotizacionService {
   private url = 'http://localhost:8080/get_cotizacion_dolar';
 
   getCotizacion(): Observable<any> {
-    console.log('cotización');
-
     return this.http.get(this.url);
   }
 }

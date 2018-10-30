@@ -1,12 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
 import { CotizacionService } from './cotizacion.service';
-import { HttpClientModule } from '../../../node_modules/@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('CotizacionService', () => {
-  let httpClientSpy: { get: jasmine.Spy };
-  let cotizacionService: CotizacionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,31 +15,34 @@ describe('CotizacionService', () => {
         CotizacionService
       ]
     });
-
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    cotizacionService = new CotizacionService(<any> httpClientSpy);
   });
 
   it('should be created', () => {
     const service: CotizacionService = TestBed.get(CotizacionService);
+
     expect(service).toBeTruthy();
   });
 
-  it('chequear cotización', () => {
-    let expectedCotizacion: {
+  it('chequea cotización', (done) => {
+    const expectedCotizacion = {
       'd': '2018-10-24',
-      'v': 36.5417,
+      'v': 36.5416,
       'mensaje': 'Valor elevado'
     };
 
-    spyOn(cotizacionService, 'getCotizacion').and.returnValue(expectedCotizacion);
-    /* httpClientSpy.get.and.returnValue(expectedCotizacion);
+    const service: CotizacionService = TestBed.get(CotizacionService);
 
-    cotizacionService.getCotizacion().subscribe(
-      cotizacion => expect(cotizacion).toEqual(expectedCotizacion, 'expected cotización'),
-      fail
+    service.getCotizacion().subscribe(
+      cotizacion => {
+        console.log(cotizacion);
+        console.log(expectedCotizacion);
+
+        // No tira porque se hace comparador de igualdad, usar un matcher
+        expect(cotizacion).toEqual(expectedCotizacion, 'expected cotizacion');
+
+        done();
+      }
     );
-
-    expect(httpClientSpy.get.calls.count()).toBe(1, 'one call'); */
   });
+
 });
