@@ -25,27 +25,6 @@ describe('CotizacionService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('chequea valor cotización', (done) => {
-    const expectedCotizacion = {
-      'd': '2018-10-24',
-      'v': 36.5416,
-      'mensaje': 'Valor elevado'
-    };
-
-    const service: CotizacionService = TestBed.get(CotizacionService);
-
-    service.getCotizacion().subscribe(cotizacion => {
-        console.log(cotizacion);
-        console.log(expectedCotizacion);
-
-        // No tira porque se hace comparador de igualdad, usar un matcher
-        expect(cotizacion).toEqual(expectedCotizacion, 'expected cotizacion');
-
-        done();
-      }
-    );
-  });
-
   it('chequea formato cotización', (done) => {
     const service: CotizacionService = TestBed.get(CotizacionService);
 
