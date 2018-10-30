@@ -9,8 +9,12 @@ cache:
   directories:
     - node_modules
 
+addons:
+  chrome: stable
+
 before_script:
   - npm install -g @angular/cli
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 script:
   - ng test
