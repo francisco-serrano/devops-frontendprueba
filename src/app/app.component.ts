@@ -14,7 +14,7 @@ export class AppComponent {
 
   title = 'frontend-prueba';
 
-  private jsonCotizacion;
+  jsonCotizacion = 'undefined';
 
   solicitarCotizacion() {
     this.cotizacionService.getCotizacion().subscribe(data => {
